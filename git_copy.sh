@@ -1,34 +1,31 @@
 #!bin/bash
 
-REMOTE_DIR="../${PWD##*/}_admin/"
-
-echo 'Starting...'
 expected_args=1
 e_badargs=65
 home_dir=$PWD/
 current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 
-#####################################################
-echo "           Remote Directory is '$REMOTE_DIR' Is it correct? 'Y'es" 
-echo "           Change Path press 'C'" 
-echo ""
-read -p "Are you sure? " -n 1 -r
-if [[ ! $REPLY =~ [CcYy]$ ]]
+######################## Set REMOTE_DIR #############################
+REMOTE_DIR="$1/"
+if [ -z $REMOTE_DIR ]
 then
-   exit 1
-else 
-	if [[ $REPLY =~ [Cc]$ ]]
-	then
-	echo ""
-	echo "Enter Remote Dir path such as \"public_html\""
-	read REMOTE_DIR
-	REMOTE_DIR="../${PWD##*/}_$(basename -- $REMOTE_DIR)/"
-	fi
+	echo "Remote Directory is Required"
+	echo "Enter Remote Dir path from '$home_dir'"
+	echo "Such as '../../test' for this path '$home_dir../../test'"
+	exit
+fi
+echo ""
+echo "           Remote Directory is '$home_dir$REMOTE_DIR' Is it correct? 'Y'es" 
+echo ""
+
+read -p "Are you sure? " -n 1 -r
+if [[ ! $REPLY =~ [Yy]$ ]]
+then
+   exit
 fi
 
 
-
-#####################################################
+##################### Set from and to Tags ################################
 if [ $# -lt $expected_args ]
 then
     echo "Error: you should use command $0 from_tag [to_tag]"
@@ -37,18 +34,19 @@ fi
 
 cd $home_dir
 to_tag="HEAD@{0}"
-if [ ! -z "$2" ]
+if [ ! -z "$3" ]
 then
-	to_tag="$2"
+	to_tag="$3"
 fi
 
-from_tag="$1"
+from_tag="$2"
 if [ -z $from_tag ]
 then
 	echo "Error no from tag"
 	exit
 fi
 echo ""
+echo 'Starting...'
 echo "Will copy changed files from $from_tag to $to_tag"
 
 # get the from commit via tag name
