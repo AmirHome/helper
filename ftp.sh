@@ -10,6 +10,9 @@ if [ -f .env.git_ftp ]; then
     export $(cat .env.git_ftp | grep -v '#' | awk '/=/ {print $1}')
 fi
 
+cat .env.git_ftp
+echo $REMOTE_PATH
+exit
 # REMOTE_PROTOCOL="ftp"
 # REMOTE_HOST="YOUR_HOST"
 # REMOTE_USER="USERNAME"

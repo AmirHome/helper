@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 expected_args=1
 e_badargs=65
@@ -75,10 +75,11 @@ IFS=$'\n'
 # get list file changed and push to FTP server
 for file_change in $git_list_file_changed
 do
-	echo "Put $file_change ..."
+	echo "Put $file_change ... "
 	count_file=$((count_file+1))
     # call FTP script to push file via curl
-	bash /home/amir/Dropbox/Helper/ftp.sh $file_change $REMOTE_DIR$file_change
+	echo $file_change $REMOTE_DIR$file_change
+	#bash /home/amir/Dropbox/Helper/ftp.sh $file_change $REMOTE_DIR$file_change
 done
 
 #########################################   new tag    ########################################

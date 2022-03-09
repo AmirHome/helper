@@ -13,7 +13,7 @@ function helper () {
 	printf "git_copy            | Copy modify files to .._admin\r\n"
 	printf "git_tag             | Git Tag from commit Id or Head\r\n"
 	printf "php_ver             | Chean php version\r\n"
-	printf "vhost               | Set vhost with name[.loc] on [/var/www/vhosts/]Path\r\n"
+	printf "vhost               | Set vhost with name[.loc] on [/var/www/vhosts/]Path(/public for Laravel)\r\n"
     else
     bash /home/amir/Dropbox/Helper/$1.sh $2 $3 $4 $5 $6 $7 $8 $9 ${10}
     fi
