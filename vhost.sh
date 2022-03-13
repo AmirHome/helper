@@ -14,9 +14,10 @@ then
 fi
 
 
-if grep -q "127.0.0.1 $1.loc" "/etc/hosts"; then
+if ! grep -q "127.0.0.1 $1.loc" /etc/hosts; then
   echo "127.0.0.1 $1.loc" | sudo tee -a /etc/hosts
 fi
+
 
 sudo rm -rf /etc/apache2/sites-enabled/$1.loc.conf
 
