@@ -44,4 +44,4 @@ EOT
 
 sudo systemctl restart apache2;
 
-echo "Enjoying http://$1.loc , call from $HOME/Codes/$VPATH"
+echo "Enjoying http://$1.loc , call from $HOME/Codes/vhosts/$VPATH"
