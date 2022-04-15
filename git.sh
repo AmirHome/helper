@@ -3,7 +3,6 @@
 USERNAME=`whoami`;
 BASEDIR=$(dirname "$0")
 
-
 echo ""
 git status
 echo ""
