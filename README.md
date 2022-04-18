@@ -18,6 +18,7 @@ function helper () {
 	printf "vhost               | Set vhost with name[.loc] on [/var/www/vhosts/]Path\r\n"
 
     else
+    
     shift
     
     bash /home/amir/Dropbox/Helper/$cmd.sh "$@"

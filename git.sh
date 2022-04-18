@@ -21,7 +21,7 @@ do
             ;;
         "add and commit")
             # add and commit
-            bash $BASEDIR/git/git_add_commit.sh $1
+            bash $BASEDIR/git/git_add_commit.sh "$@"
 
             break
             ;;
