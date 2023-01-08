@@ -9,7 +9,7 @@ echo ""
 
 
 PS3='Please enter your choice: '
-options=("php 5.6" "php 7.0" "php 7.4" "php 8.1" "Quit")
+options=("php 5.6" "php 7.0" "php 7.4" "php 8.0" "php 8.1" "php 8.2" "Quit")
 select opt in "${options[@]}"
 do
 
@@ -32,10 +32,24 @@ do
             
             break
             ;;
+        "php 8.0")
+            #echo "you chose choice $REPLY which is $opt"
+            # Enable php 8.0
+            bash $BASEDIR/php_ver/enable_php8.0.sh
+            
+            break
+            ;;
         "php 8.1")
             #echo "you chose choice $REPLY which is $opt"
             # Enable php 8.1
             bash $BASEDIR/php_ver/enable_php8.1.sh
+            
+            break
+            ;;
+        "php 8.2")
+            #echo "you chose choice $REPLY which is $opt"
+            # Enable php 8.2
+            bash $BASEDIR/php_ver/enable_php8.2.sh
             
             break
             ;;

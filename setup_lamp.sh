@@ -52,24 +52,37 @@ sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-curl php7.0-json php
 # - php7.4-fpm
 sudo apt-get -y install php7.4 libapache2-mod-php7.4 openssl php7.4-curl php7.4-json php7.4-mbstring php7.4-mysql php7.4-xml php7.4-zip php7.4-common php7.4-bcmath php7.4-mcrypt
 
+# Install php 8.0
+# - libapache2-mod-fcgid php8.0-fpm
+sudo apt-get -y install php8.0 libapache2-mod-php8.0 php8.0-fpm php8.0-curl php8.0-dev php8.0-gd php8.0-mbstring php8.0-zip php8.0-mysql php8.0-xml;
+
 # Install php 8.1
 # - libapache2-mod-fcgid php8.1-fpm
 sudo apt-get -y install php8.1 libapache2-mod-php8.1 php8.1-fpm php8.1-curl php8.1-dev php8.1-gd php8.1-mbstring php8.1-zip php8.1-mysql php8.1-xml;
+
+# Install php 8.2
+# - libapache2-mod-fcgid php8.2-fpm
+sudo apt-get -y install php8.2 libapache2-mod-php8.2 php8.2-fpm php8.2-curl php8.2-dev php8.2-gd php8.2-mbstring php8.2-zip php8.2-mysql php8.2-xml;
 
 # Enable php 5.6
 bash $BASEDIR/php_ver/enable_php5.6.sh
 
 # Enable php 7.0
-#sudo a2dismod php5.6
 bash $BASEDIR/php_ver/enable_php7.0.sh
 
 # Enable php 7.4
-# sudo a2dismod php5.6 && 
 bash $BASEDIR/php_ver/enable_php7.4.sh
+
+# Enable php 8.0 
+bash $BASEDIR/php_ver/enable_php8.0.sh
 
 # Enable php 8.1
 # sudo a2dismod php5.6 && 
 bash $BASEDIR/php_ver/enable_php8.1.sh
+
+# Enable php 8.2
+# sudo a2dismod php5.6 && 
+bash $BASEDIR/php_ver/enable_php8.2.sh
 
 sudo a2enmod rewrite;
 
