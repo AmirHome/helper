@@ -29,3 +29,4 @@ php artisan migrate:fresh --seed
 php artisan key:generate
 php artisan storage:link
 
+echo "git checkout master && git merge quickadmin --no-commit --no-ff"

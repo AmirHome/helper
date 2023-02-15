@@ -1,27 +1,19 @@
-#!/usr/bin/env bash
-
 #!/bin/bash
 
-# Check for the -apk argument (optional)
-
-build_apk=0
-
-# Use getopts to process the optional apk argument
-while getopts ":a" opt; do
-  case $opt in
-    a)
-      build_apk=1
-      shift
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      exit 1
-      ;;
-  esac
+while [ "$1" != "" ]; do
+    case $1 in
+        -r | -R )           shift
+                            run_flag=1
+                            ;;
+        --apk )             shift
+                            apk_flag=1
+                            ;;
+        * )                 break
+    esac
+    shift
 done
 
-# Shift the processed arguments to the left
-shift $((OPTIND -1))
+# continue to execute other commands here if no flags were set
 
 # Check if Flutter is installed
 if ! [ -x "$(command -v flutter)" ]; then
@@ -29,32 +21,44 @@ if ! [ -x "$(command -v flutter)" ]; then
   exit 1
 fi
 
-# Check if the Android SDK is installed and setup
-#if ! [ -x "$(command -v adb)" ]; then
-#  echo 'Error: Android SDK is not installed or not setup properly.' >&2
-#  exit 1
-#fi
+# commands to run when -r or -R flag is set
+if [ "$run_flag" == 1 ]; then
+    ### Clean the project and get the packages
+    flutter pub cache clean
+fi
 
-# Check if the build name and build number are provided as arguments
-#if [ $# -lt 2 ]; then
-#  echo "Usage: $0 BUILD_NAME BUILD_NUMBER" >&2
-#  exit 1
-#fi
+echo "Flutter version: $(flutter --version)"
+echo "Flutter upgrading..."
+flutter upgrade
 
-#build_name=$1
-#build_number=$2
+echo "Flutter cache repairing..."
+flutter pub cache repair
 
-# Build the app for release
-flutter pub upgrade
-flutter format .
-
-# Clean the project and get the packages
+### Clean the project and get the packages
+echo "Flutter cleaning..."
 flutter clean
+
+
+if [ -f "pubspec.lock" ]; then
+  rm pubspec.lock
+else
+  echo "pubspec.lock does not exist"
+fi
+
+echo "Flutter upgrading packages..."
+flutter pub upgrade
+
+echo "Flutter getting packages..."
 flutter pub get
 
-# Now you can use the $apk variable to check if the apk argument was provided
-if [ $build_apk -eq 1 ]; then
+echo "Flutter analyzing outdating..."
+flutter pub outdated
+# flutter pub upgrade --major-versions
 
+# Build the app for release
+# commands to run when --apk flag is set
+if [ "$apk_flag" == 1 ]; then
+    
     # Set the build mode to release
     flutter build apk --release
 
@@ -76,7 +80,4 @@ if [ $build_apk -eq 1 ]; then
     fi
 
     echo "Release APK: $apk_file"
-
 fi
-
-

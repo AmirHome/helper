@@ -4,6 +4,10 @@
 Append this function to ~/.bashrc
 
 ```sh
+# Install and run FlutterFire CLI
+# dart pub global activate flutterfire_cli
+export PATH="$PATH:$HOME/.pub-cache/bin"
+
 # Helper path 
 function helper () {
 
