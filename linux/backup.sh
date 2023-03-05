@@ -49,8 +49,8 @@ sudo cp /etc/hosts ./Dropbox/Helper/linux/
 sudo cp -r /etc/apache2/sites-enabled ./Dropbox/Helper/linux/
 
 # Backup MySQL
-mysqldump -u root -p123 --all-databases | gzip > ./Dropbox/Helper/linux/mysql_backup.sql.gz
-
+# mysqldump -u root -p123 --all-databases | gzip > ./Dropbox/Helper/linux/mysql_backup.sql.gz
+sudo ./Dropbox/Helper/linux/db-backup.sh
 
 # Export to External Drive
 
