@@ -8,11 +8,11 @@ lsb_release -a
 service --status-all
 
 # How To Install And Run Docker On Ubuntu 20.04 LTS
-sudo apt update
+sudo apt update -y
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt update
+sudo apt update -y
 
 sudo apt install docker-ce docker-ce-cli containerd.io -y
 sudo usermod -a -G docker $USERNAME
@@ -23,3 +23,4 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/bin/docker-compose
 
 docker-compose -v
+

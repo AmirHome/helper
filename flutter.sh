@@ -28,6 +28,9 @@ if [ "$run_flag" == 1 ]; then
 fi
 
 echo "Flutter version: $(flutter --version)"
+
+flutter channel stable
+
 echo "Flutter upgrading..."
 flutter upgrade
 

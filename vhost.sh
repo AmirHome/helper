@@ -31,9 +31,9 @@ fi
 sudo tee -a /etc/apache2/sites-enabled/$1.loc.conf > /dev/null <<EOT
 <VirtualHost *:80>
 	ServerName $1.loc
-	DocumentRoot $HOME/Codes/vhosts/$VPATH
+	DocumentRoot $HOME/data/Codes/vhosts/$VPATH
 	SetEnv MAGE_MODE developer
-	<Directory "$HOME/Codes/vhosts/$VPATH/">
+	<Directory "$HOME/data/Codes/vhosts/$VPATH/">
 		AllowOverride All
 		Order allow,deny
 		Allow from all
@@ -44,4 +44,4 @@ EOT
 
 sudo systemctl restart apache2;
 
-echo "Enjoying http://$1.loc , call from $HOME/Codes/vhosts/$VPATH"
+echo "Enjoying http://$1.loc , call from $HOME/data/Codes/vhosts/$VPATH"

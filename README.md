@@ -1,9 +1,16 @@
 # Helper Commands for deploy
 
+## Requirment
+ln -ls /data ~/data
+sudo chown -R amir:amir /data
+sudo chmod -R 700 /data
+
 ## Installation
 Append this function to ~/.bashrc
 
 ```sh
+
+
 # Install and run FlutterFire CLI
 # dart pub global activate flutterfire_cli
 export PATH="$PATH:$HOME/.pub-cache/bin"
@@ -27,7 +34,7 @@ function helper () {
     else
     shift
     
-    bash /home/amir/Dropbox/Helper/$cmd.sh "$@"
+    bash /home/amir/data/Dropbox/Helper/$cmd.sh "$@"
     fi
 }
 
@@ -55,3 +62,10 @@ MIT
 
 **Free Software, Amir Hosseinzadeh!**
 
+gedit /etc/apache2/apache2.conf
+
+<Directory /home/amir/data/Codes/vhosts/>
+	Options FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory>
