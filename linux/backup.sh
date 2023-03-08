@@ -47,6 +47,9 @@ sudo cp /etc/hosts ./Dropbox/Helper/linux/
 
 # Backup /etc/apache2/sites-enabled
 sudo cp -r /etc/apache2/sites-enabled ./Dropbox/Helper/linux/
+# Restore
+# sudo cp -r $HOME/data/Dropbox/Helper/linux/sites-enabled /etc/apache2/
+
 
 # Backup MySQL
 # mysqldump -u root -p123 --all-databases | gzip > ./Dropbox/Helper/linux/mysql_backup.sql.gz

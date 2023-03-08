@@ -1,15 +1,23 @@
 # Helper Commands for deploy
 
-## Requirment
-ln -ls /data ~/data
-sudo chown -R amir:amir /data
-sudo chmod -R 700 /data
+## Partitions
+1. edi     120MB (Boot)
+2. /       64GB  (Root)
+3. swap    32GB
+4. /home   120GB
+5. /data   ...
 
-## Installation
-Append this function to ~/.bashrc
+## Requirment link data to home
 
 ```sh
 
+   sudo /data/install-init.sh
+```
+
+## Installation
+Append this function to gedit ~/.bashrc
+
+```sh
 
 # Install and run FlutterFire CLI
 # dart pub global activate flutterfire_cli
@@ -42,10 +50,12 @@ function helper () {
 ```
 
 ## Commands
-For example
+For example for full install
 
 ```sh
-helper git_tag
+    helper install-full
+
+    helper git_tag
 ```
 
 | Comand | README |
@@ -69,3 +79,11 @@ gedit /etc/apache2/apache2.conf
 	AllowOverride All
 	Require all granted
 </Directory>
+
+
+### Android studio for Flutter doctor
+### cmdline-tools component is missing
+Android SDK > Android Tools
+   Android SDK Command-line Tools
+
+flutter doctor --android-licenses

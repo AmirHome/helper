@@ -137,6 +137,20 @@ sudo mysql -uroot -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native
 sudo mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;";
 sudo mysql -uroot -e "FLUSH PRIVILEGES;";
 
+
+### Restore Database
+bash $HOME/data/Dropbox/Helper/linux/db-restore.sh
+
+# Restore SSH
+cp -r $HOME/data/Dropbox/Helper/linux/.ssh $HOME/
+
+# Restore VHOST
+sudo cp -r $HOME/data/Dropbox/Helper/linux/sites-enabled /etc/apache2/
+
+# Restore /etc/hosts
+sudo cp $HOME/data/Dropbox/Helper/linux/hosts /etc/
+sudo systemctl restart apache2
+
 #For DBeaver users:
 #Right click your connection, choose "Edit Connection"
 #On the "Connection settings" screen (main screen) click on "Edit Driver Settings"
@@ -188,13 +202,18 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
 sudo apt install microsoft-edge-stable -y
 
+## Run Dropbox Installer
+sudo apt-get install -y nautilus-dropbox
+
+## Run TeamViewer Installer
+wget -P $HOME/Download/ https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+sudo apt -y install $HOME/Download/teamviewer_amd64.deb
 
 ## Run FileZilla Download and Installer
 sudo apt install filezilla -y
 
-
-## Run Dropbox Installer
-sudo apt-get install -y nautilus-dropbox
+## Run CopyQ Text Installer
+sudo apt-get install copyq -y
 
 ## Snap Install
 sudo snap install postman
@@ -203,5 +222,4 @@ sudo snap install code --classic
 sudo snap install phpstorm --classic
 sudo snap install android-studio --classic
 sudo snap install flutter --classic
-sudo snap install keepassxc
 sudo snap install keepassxc
