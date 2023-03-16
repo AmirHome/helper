@@ -38,6 +38,10 @@ echo "Flutter cache repairing..."
 flutter pub cache repair
 
 ### Clean the project and get the packages
+echo "Flutter pub outdated running..."
+flutter pub outdated
+
+### Clean the project and get the packages
 echo "Flutter cleaning..."
 flutter clean
 

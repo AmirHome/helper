@@ -3,7 +3,7 @@
 
 USERNAME=`whoami`;
 BASEDIR=$(dirname "$0")
-VHOSTDIR=$HOME/Codes/vhosts
+VHOSTDIR=$HOME/data/Codes/vhosts
 
 projectName=$1
 if [ -z $projectName ]

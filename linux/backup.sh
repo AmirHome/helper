@@ -34,7 +34,7 @@ echo "Copying home directory to $device_name ..."
 # rsync -avz --progress /home/$USER/ "$device_name"/backup/
 
 echo "removing log files ..."
-sudo rm -rf /home/$USER/Codes/*.log
+sudo rm -rf /home/$USER/data/Codes/*.log
 
 # Backup ssh keys
 sudo cp -r ~/.ssh/ ./Dropbox/Helper/linux/
@@ -59,7 +59,7 @@ sudo ./Dropbox/Helper/linux/db-backup.sh
 
 
 sudo mkdir $device_name/backup/
-# sudo mkdir $device_name/backup/Codes/
+# sudo mkdir $device_name/backup/data/Codes/
 # sudo mkdir $device_name/backup/Documents/
 # sudo mkdir $device_name/backup/Dropbox/
 # sudo mkdir $device_name/backup/Music/
@@ -69,8 +69,8 @@ sudo mkdir $device_name/backup/
 
 
 echo "Copying Codes to $device_name ..."
-# sudo cp -r /home/$USER/Codes $device_name/backup/Codes/
-sudo tar -czvf $device_name/backup/Codes.tar.gz /home/$USER/Codes
+# sudo cp -r /home/$USER/data/Codes $device_name/backup/data/Codes/
+sudo tar -czvf $device_name/backup/data/Codes.tar.gz /home/$USER/data/Codes
 
 echo "Copying Documents to $device_name ..."
 # sudo cp -r /home/$USER/Documents $device_name/backup/Documents/

@@ -2,7 +2,7 @@
 
 USERNAME=`whoami`;
 BASEDIR=$(dirname "$0")
-VHOSTDIR=$HOME/Codes/vhosts
+VHOSTDIR=$HOME/data/Codes/vhosts
 CURRENT=$VHOSTDIR/Erkan/"hibes_admin"
 
 cd "$CURRENT" > /dev/null 2>&1 || { echo "Make Directory $CURRENT"; mkdir $CURRENT; cd "$CURRENT";}
