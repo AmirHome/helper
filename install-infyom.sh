@@ -12,6 +12,8 @@ then
         exit
 fi
 
+cd $VHOSTDIR
+
 projectDir=${projectName//[-]/_}
 projectPATH=$VHOSTDIR/$projectDir
 

@@ -132,8 +132,8 @@ function helper () {
 	printf "git-tag             | Git Tag from commit Id or Head\r\n"
 	printf "php-ver             | Chean php version\r\n"
 	printf "vhost               | Set vhost with name[.loc] on [/var/www/vhosts/]Path\r\n"
-        printf "quickadmin-extract  | Extract zip to Erkan hibes_admin on quickadmin branch\r\n"        
-        printf "flutter             | Clean, Upgrade, Format and build APK [-apk]\r\n"
+    printf "quickadmin-extract  | Extract zip to Erkan hibes_admin on quickadmin branch\r\n"        
+    printf "flutter             | Clean, Upgrade, Format and build APK [-apk]\r\n"
 
 
     else

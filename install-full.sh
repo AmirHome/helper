@@ -54,6 +54,9 @@ sudo apt-get -y install php5.6 php5.6-mcrypt php5.6-zip php5.6-xml php5.6-gd php
 # Install php7.0
 sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-curl php7.0-json php7.0-mbstring php7.0-mysql php7.0-xml php7.0-zip php7.0-common php7.0-bcmath php7.0-mcrypt php7.0-cgi php7.0-cli php7.0-curl php7.0-dev php7.0-gd php7.0-gmp php7.0-pdo openssl 
 
+# Install php7.1
+sudo apt-get -y install php7.1 libapache2-mod-php7.1 php7.1-curl php7.1-json php7.1-mbstring php7.1-mysql php7.1-xml php7.1-zip php7.1-common php7.1-bcmath php7.1-mcrypt php7.1-cgi php7.1-cli php7.1-curl php7.1-dev php7.1-gd php7.1-gmp php7.1-pdo openssl 
+
 # Install php7.4
 # - php7.4-fpm
 sudo apt-get -y install php7.4 libapache2-mod-php7.4 openssl php7.4-curl php7.4-json php7.4-mbstring php7.4-mysql php7.4-xml php7.4-zip php7.4-common php7.4-bcmath php7.4-mcrypt
@@ -68,13 +71,17 @@ sudo apt-get -y install php8.1 libapache2-mod-php8.1 php8.1-fpm php8.1-curl php8
 
 # Install php 8.2
 # - libapache2-mod-fcgid php8.2-fpm
-sudo apt-get -y install php8.2 libapache2-mod-php8.2 php8.2-fpm php8.2-curl php8.2-dev php8.2-gd php8.2-mbstring php8.2-zip php8.2-mysql php8.2-xml;
+# - for MsSQL php8.2-sybase [PHP.ini extension=sqlsrv.so]
+sudo apt-get -y install php8.2 libapache2-mod-php8.2 php8.2-fpm php8.2-curl php8.2-dev php8.2-gd php8.2-mbstring php8.2-zip php8.2-mysql php8.2-xml php8.2-sybase;
 
 # Enable php 5.6
 bash $BASEDIR/php_ver/enable_php5.6.sh
 
 # Enable php 7.0
 bash $BASEDIR/php_ver/enable_php7.0.sh
+
+# Enable php 7.1
+bash $BASEDIR/php_ver/enable_php7.1.sh
 
 # Enable php 7.4
 bash $BASEDIR/php_ver/enable_php7.4.sh

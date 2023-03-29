@@ -53,7 +53,8 @@ else
 fi
 
 echo "Flutter upgrading packages..."
-flutter pub upgrade
+# flutter pub upgrade
+flutter pub upgrade --null-safety
 
 echo "Flutter getting packages..."
 flutter pub get

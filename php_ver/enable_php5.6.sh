@@ -2,6 +2,7 @@
 
 # Enable php 5.6
 sudo a2dismod php7.0
+sudo a2dismod php7.1
 sudo a2dismod php7.4
 sudo a2dismod php8.0 
 sudo a2dismod php8.1 
